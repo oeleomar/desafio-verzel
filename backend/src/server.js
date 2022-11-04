@@ -1,8 +1,7 @@
 const express = require("express");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://127.0.0.1:27017/car");
+const env = require("dotenv").config();
 
 const app = express();
 
@@ -10,5 +9,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("temp"));
 app.use(routes);
-
-app.listen(3000);
+mongoose
+  .connect(process.env.DATABASE_URL)
+  .then(() => {
+    app.listen(3000);
+    console.log("Server iniciado no localhost");
+  })
+  .catch((e) => console.log(e));
