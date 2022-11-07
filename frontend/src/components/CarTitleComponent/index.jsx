@@ -4,7 +4,7 @@ import * as Styled from "./styles";
 export const CarTitleComponent = ({ data }) => {
   return (
     <Styled.Container>
-      <h3>{data}</h3>
+      <h3>{data.length > 22 ? `${data.slice(0, 22)}...` : data}</h3>
     </Styled.Container>
   );
 };

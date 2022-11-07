@@ -17,10 +17,9 @@ routes.post("/login", (req, res) => {
 
   try {
     const secret = process.env.JWT_SECRET;
-    const token = jwt.sign({ user }, secret, { expiresIn: 600 });
+    const token = jwt.sign({ user }, secret, { expiresIn: 60 * 10 });
     res.status(200).json({ msg: "Autenticado com sucesso", token });
   } catch (e) {
-    console.log(e);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

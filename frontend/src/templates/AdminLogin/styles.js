@@ -17,6 +17,7 @@ export const Container = styled.div`
     }
 
     > form h2 {
+      text-align: center;
       color: ${theme.fontColor.third};
     }
 

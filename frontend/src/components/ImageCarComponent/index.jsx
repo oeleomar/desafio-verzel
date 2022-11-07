@@ -1,8 +1,7 @@
 import P from "prop-types";
 import * as Styled from "./styles";
 
-export const ImageCarComponet = ({ data }) => {
-  console.log(data);
+export const ImageCarComponent = ({ data }) => {
   return (
     <Styled.Container>
       <img
@@ -13,6 +12,6 @@ export const ImageCarComponet = ({ data }) => {
   );
 };
 
-ImageCarComponet.propTypes = {
+ImageCarComponent.propTypes = {
   data: P.string.isRequired,
 };

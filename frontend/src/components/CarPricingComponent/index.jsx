@@ -12,5 +12,5 @@ export const CarPricingComponent = ({ data }) => {
 };
 
 CarPricingComponent.propTypes = {
-  children: P.node.isRequired,
+  data: P.number.isRequired,
 };

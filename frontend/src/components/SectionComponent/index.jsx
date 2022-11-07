@@ -6,5 +6,5 @@ export const SectionComponent = ({ children }) => {
 };
 
 SectionComponent.propTypes = {
-  children: P.node.isRequired,
+  children: P.node,
 };

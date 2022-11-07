@@ -3,6 +3,7 @@ const routes = require("./routes");
 const mongoose = require("mongoose");
 const env = require("dotenv").config();
 const helmet = require("helmet");
+const cors = require("cors");
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(helmet());
+app.use(cors());
 
 app.use(routes);
 

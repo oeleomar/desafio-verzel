@@ -5,6 +5,7 @@ const car = mongoose.Schema({
   marca: String,
   modelo: String,
   preco: Number,
+  ano: Number,
   foto: String,
   pathFoto: String,
 });

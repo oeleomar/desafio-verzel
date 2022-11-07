@@ -2,9 +2,8 @@ const Car = require("../../models/Car/Car");
 
 module.exports = class CarAddController {
   async handle(file, body) {
-    const { nome, marca, modelo, preco } = body;
+    const { nome, marca, modelo, preco, ano } = body;
     const { filename: foto, path: pathFoto } = file;
-    console.log(file);
     if (!nome || !marca || !modelo || !preco || !foto || !pathFoto)
       return "Dados inválidos";
 
@@ -16,6 +15,7 @@ module.exports = class CarAddController {
       modelo,
       marca,
       preco,
+      ano,
       foto,
       pathFoto,
     });

@@ -3,20 +3,19 @@ const removeArchive = require("../../utils/removeArchive");
 
 module.exports = class UpdateCarController {
   async handle(id, file, body) {
-    // Buscar carro
     const car = await Car.findById(id);
     if (!car) return "Carro não encontrado";
 
-    //Deletar foto antiga do carro caso a nova exista
     if (file) {
       removeArchive(car.pathFoto);
       const { filename: foto, path: pathFoto } = file;
-      const { nome, modelo, marca, preco } = body;
+      const { nome, modelo, marca, preco, ano } = body;
       const newCar = await Car.updateOne({
         nome,
         modelo,
         marca,
         preco,
+        ano,
         foto,
         pathFoto,
       });
@@ -24,12 +23,13 @@ module.exports = class UpdateCarController {
       return newCar;
     }
 
-    const { nome, modelo, marca, preco } = body;
+    const { nome, modelo, marca, preco, ano } = body;
     const newCar = await Car.updateOne({
       nome,
       modelo,
       marca,
       preco,
+      ano,
     });
 
     return newCar;

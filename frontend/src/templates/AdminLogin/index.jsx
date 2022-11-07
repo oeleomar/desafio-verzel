@@ -1,42 +1,48 @@
 import { warning } from "@remix-run/router";
 import axios from "axios";
 import P from "prop-types";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as Styled from "./styles";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const AdminLogin = () => {
+  let navigate = useNavigate();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [login, setLogin] = useState(false);
 
+  useEffect(() => {
+    if (login) {
+      return navigate("/admin/home");
+    }
+  }, [login]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    console.log(user, password);
-    console.log(error);
 
     if (!user || !password) {
       setError("Informações não digitadas");
       return;
     }
 
-    console.log(user, password);
     const loginFunc = async () => {
       try {
         setError("");
+        localStorage.clear();
+
         const response = await axios.post("http://localhost:3000/admin/login", {
           user,
           password,
         });
 
         const { token } = response.data;
-        localStorage.setItem("user_token", JSON.stringify(token));
+        localStorage.setItem("user_token", token);
         setLogin(true);
       } catch (e) {
         setError(e.response.data.error);
-        return;
+        localStorage.clear();
       }
     };
     loginFunc();
@@ -75,7 +81,6 @@ export const AdminLogin = () => {
           <input type="submit" value="Entrar" className="button-submit" />
         </fieldset>
       </form>
-      {login && <Navigate replace to="/admin/home" />}
     </Styled.Container>
   );
 };

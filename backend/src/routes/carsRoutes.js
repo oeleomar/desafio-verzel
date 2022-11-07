@@ -21,18 +21,21 @@ routes.post(
   checkToken,
   multer(multerConfig).single("picture"),
   async (req, res) => {
-    if (!req.file) return res.status(400).json({ error: "Dados não enviados" });
+    if (!req.file) return res.status(400).json({ error: "Foto não enviada" });
     if (Object.keys(req.body).length === 0) {
       removeArchive(req.file.path);
       return res.status(402).json({ error: "Dados não enviados" });
     }
-
-    const result = await carAddController.handle(req.file, req.body);
-    if (typeof result === "string") {
-      removeArchive(req.file.path);
-      return res.status(400).json({ error: result });
+    try {
+      const result = await carAddController.handle(req.file, req.body);
+      if (typeof result === "string") {
+        removeArchive(req.file.path);
+        return res.status(400).json({ error: result });
+      }
+      res.status(201).json(result);
+    } catch (e) {
+      res.status(500).json({ error: "internal server error" });
     }
-    res.status(201).json(result);
   },
 );
 
