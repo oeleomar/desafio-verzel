@@ -68,7 +68,6 @@ routes.put(
 //Deletar
 routes.delete("/:id", checkToken, async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const data = await deleteCarController.handle(id);
 
   if (typeof data === "string") return res.status(404).json({ error: data });

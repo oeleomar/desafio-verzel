@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
       right: 0px;
       bottom: 0px;
       left: 0px;
+      z-index: 9;
     }
 
     > .content {
@@ -22,6 +23,7 @@ export const MainContainer = styled.div`
         hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
       padding: 20px;
       border-radius: 5px;
+      z-index: 10;
     }
 
     > .content .content__title {

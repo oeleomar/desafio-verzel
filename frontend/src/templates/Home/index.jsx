@@ -16,7 +16,6 @@ export const Home = ({}) => {
     const fetchData = async () => {
       const raw = await axios("http://localhost:3000/car");
       setData(raw.data.data);
-      console.log(data);
     };
     fetchData();
   }, []);
@@ -48,7 +47,9 @@ export const Home = ({}) => {
       <SectionComponent>
         {search
           ? results.map((val) => <CarComponent data={val} key={val._id} />)
-          : data.map((val) => <CarComponent data={val} key={val._id} />)}
+          : data.length > 0
+          ? data.map((val) => <CarComponent data={val} key={val._id} />)
+          : "Nenhum anúncio encontrado"}
       </SectionComponent>
     </Styled.MainContainer>
   );

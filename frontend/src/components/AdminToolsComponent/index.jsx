@@ -34,6 +34,7 @@ export const AdminToolsComponent = ({ data, token }) => {
         );
         setDeleted(true);
       } catch (e) {
+        console.log(e);
         if (e.response.data.error === "Acesso negado") {
           setError(true);
         }
