@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 
 routes.post("/login", (req, res) => {
   const { user, password } = req.body;
-  console.log(process.env.ADMIN_USER);
 
   if (!user || !password)
     return res.status(400).json({ error: "Campos inválidos" });
