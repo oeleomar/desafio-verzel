@@ -33,9 +33,10 @@ Obs: É extremamente recomendado seguir o passo a passo
 9. Guarde bem o valor do ADMIN_USER e ADMIN_PASSWORD pois eles serão usados para autenticar no frontend
 10. Para pegar a url de conexão do mongoDB é mongodb://localhost:PORTA/DATABASE. Ex: mongodb://localhost:27017/car
 11. Após ter configurado todas as variáveis corretamente, instalado as dependencias, abra um terminar, navegue com ele até a pasta backend
-12. Inicie o projeto com " npm start "
-13. Caso tenha aparecido algum erro, confirme as variáveis do ambiente e se o mongoDB está instalado propriamente
-14. Caso a mensagem "Server iniciado no localhost" apareça em seu terminar o backend está rodando corretamente já
+12. Certifique-se que tenha dentro da pasta backend tenha umas pasta "temp" e dentro dela uma pasta "upload" para guardar suas fotos, caso não tenha crie essas pastas
+13. Antes de iniciar o projeto, certifique que tenha feito todas as configurações acima. Após isso inicie o projeto com " npm start "
+14. Caso tenha aparecido algum erro, confirme as variáveis do ambiente e se o mongoDB está instalado propriamente
+15. Caso a mensagem "Server iniciado no localhost" apareça em seu terminar o backend está rodando corretamente já
 
 ## Frontend
 
