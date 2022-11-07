@@ -31,7 +31,7 @@ Obs: É extremamente recomendado seguir o passo a passo
 7. Volte para a pasta backend, configure as variáveis de ambiente, para isso crie um arquivo chamado .env
 8. Nele você precisará configurar conforme o .example.env, colocando os valores após o "="
 9. Guarde bem o valor do ADMIN_USER e ADMIN_PASSWORD pois eles serão usados para autenticar no frontend
-10. Para pegar a url de conexão do mongoDB é mongodb://localhost:<\porta>/<\database>. Ex: mongodb://localhost:27017/car
+10. Para pegar a url de conexão do mongoDB é mongodb://localhost:PORTA/DATABASE. Ex: mongodb://localhost:27017/car
 11. Após ter configurado todas as variáveis corretamente, instalado as dependencias, abra um terminar, navegue com ele até a pasta backend
 12. Inicie o projeto com " npm start "
 13. Caso tenha aparecido algum erro, confirme as variáveis do ambiente e se o mongoDB está instalado propriamente
@@ -48,9 +48,9 @@ Obs: É extremamente recomendado seguir o passo a passo
 
 ## Instruções gerais
 
-- A rota "url/" é a home page, onde aparece todos os carros cadastrados
-- A rota " url/admin " é a rota de login para realizar a autenticação com os dados do ADMIN_USER e ADMIN_PASSWORD
-- A rota " url/admin/home " é uma rota privada para criação, edição e delete dos carros
+- A rota "url/" é a home page, onde aparece todos os carros cadastrados Ex: http://127.0.0.1:5173/
+- A rota " url/admin " é a rota de login para realizar a autenticação com os dados do ADMIN_USER e ADMIN_PASSWORD Ex: http://127.0.0.1:5173/admin
+- A rota " url/admin/home " é uma rota privada para criação, edição e delete dos carros Ex: http://127.0.0.1:5173/admin/home
 
 ### End-Points
 
@@ -67,7 +67,7 @@ Obs: É extremamente recomendado seguir o passo a passo
 
 ### Dúvidas e Agradecimentos
 
-Agradeço pela oportunidade, <a href="https://www.verzel.com.br/">Verzel</a> de estar enviando esse mini-projeto, acredito que a melhor forma de aprender é praticando, e tenho certeza que evolui muito resolvendo os eventuais bugs desse projeto.
+Agradeço pela oportunidade, <a href="https://www.verzel.com.br/">Verzel</a>, de estar enviando esse mini-projeto, acredito que a melhor forma de aprender é praticando, e tenho certeza que evolui muito apenas "codando" esse projeto.
 
-Qualquer dúvida só entrar em contato via e-mail: eleomar.dev@gmail.com
-Meu <a href="https://www.linkedin.com/in/eleomar-dorneles/">LinkedIn</a>
+- Qualquer dúvida só entrar em contato via e-mail: eleomar.dev@gmail.com
+- Meu <a href="https://www.linkedin.com/in/eleomar-dorneles/">LinkedIn</a>
