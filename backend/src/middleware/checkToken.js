@@ -12,7 +12,9 @@ function checkToken(req, res, next) {
     jwt.verify(token, secret);
     next();
   } catch (e) {
-    return res.status(400).json({ error: "Token inválido" });
+    return res
+      .status(400)
+      .json({ error: "Token inválido, faça o login novamente" });
   }
 }
 
